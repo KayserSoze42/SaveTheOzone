@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+        <title>SaveTheOzone</title>
+        
+        <style>
+            
+			select {
+
+				display: block;
+				width: 90%;
+				background-color: black;
+				color: white;
+				border-radius: 20px;
+				font-size: 20px;
+
+			}
+						
+			input[type=date] {
+
+				background-color: black;
+				color: white;
+				width: 90%;
+				border-radius: 20px;
+				font-size: 20px;
+
+			}
+
+			input[type=range] {
+				  height: 35px;
+				  -webkit-appearance: none;
+				  margin: 10px 0;
+				  width: 80%;
+				  background: transparent;
+			}
+			input[type=range]::-moz-range-track {
+				  width: 100%;
+				  height: 10px;
+				  cursor: pointer;
+				  animate: 0.2s;
+				  box-shadow: 1px 1px 1px #000000;
+				  background: #FFFFFF;
+				  border-radius: 5px;
+				  border: 1px solid #000000;
+			}
+			input[type=range]::-moz-range-thumb {
+				  box-shadow: 2px 2px 2px #000000;
+				  border: 2px solid #0D800D;
+				  height: 25px;
+				  width: 25px;
+				  border-radius: 12px;
+				  background: #07DE00;
+				  cursor: pointer;
+			}
+            
+            body {
+
+                background-color: #1f2e2e;
+                text-align: center;
+
+            }
+
+            .info {
+
+                width: 35%;
+				float: right;
+                text-align: center;
+                display: block;
+                margin-top: 1%;
+                margin-right: 10%;
+                padding: 10px 10px 10px;
+                background-color: black;
+                border-radius: 20px;
+                opacity: 100%;
+
+            }
+
+            .info p {
+
+                color: red;
+		margin-left: 12.5%;
+                line-height: 25px; 
+                width: 75%;
+                font-weight: bold;
+                font-size: 18px;
+
+            }
+
+            .timeselect {
+
+                display: inline-block;
+                width: 30%;
+
+            }
+
+            .title {
+
+                display: block;
+                text-align: center;
+                margin-top: 1%;
+
+            }
+
+            .title h {
+
+                color: #00ff00;
+                font-weight: bold;
+                font-size: 350%;
+
+            }
+
+            .output {
+
+                display: block;
+				margin-top: 1%;
+                margin-left: 20%;
+                background: black;
+                border-radius: 20px;
+                width: 60%;
+                line-height: 20px;
+                padding: 10px 20px 20px;
+                text-align: center;
+
+            }
+
+            .output p {
+
+                color: #e6ffe6;
+                font-size: 26px;
+                font-weight: bold;
+
+            }
+
+            .output a {
+
+                color: green;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 20px 20px 20px;
+
+            }
+
+            .centerin {
+
+                text-align: center;
+                display: block;
+                margin-top: 1%;
+                margin-left: 10%;
+                width: 35%;
+                padding: 10px 10px 10px;
+                line-height: 30px;
+                border-radius: 15px;
+                float: left;
+                background: black;
+
+            }
+
+            .centerin p {
+
+                font-size: 20px;
+                font-weight: bold;
+                color: #99ff99;
+
+            }
+
+            .centerin h {
+
+                display: block;
+                font-weight: bold;
+                font-size: 20px;
+                color: #99ff99;
+
+            }
+
+            .datetimestart {
+
+                float: left;
+                width: 50%;
+
+            }
+
+            .datetimeend {
+
+                float: right;
+                width: 50%;
+
+            }
+
+            .centerout {
+
+                text-align: center;
+                display: block;
+                margin-top: 1%;
+                margin-right: 10%;
+                width: 35%;
+                line-height: 30px;
+                padding: 10px 10px 10px;
+                border-radius: 15px;
+                float: right;
+                background: black;
+
+            }
+
+            .centerout h {
+
+                display: block;
+                font-weight: bold;
+                font-size: 20px;
+                color: #99ff99;
+
+            }
+
+            label {
+
+                font-size: 20px;
+                display: block;
+                font-weight: bold;
+                color: #ccffcc;
+
+            }
+
+            .labelheader {
+
+                font-size: 15px;
+                text-align: center;
+				font-weight: bold;
+
+            }
+
+            .formatleft {
+
+                float: left;
+                width: 50%;
+                display: inline-block;
+
+            }
+
+            .formatright {
+
+                float: right;
+                display: inline-block;
+                width: 50%;
+
+            }
+
+            .centerright {
+
+                 margin-left: 15%;
+				 margin-top: 17%;
+                 width: 80%;
+
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <div id="title" class="title">
+            
+            <h>SaveTheOzone</h1>
+            
+        </div>
+        
+        <div id="output" class="output">
+		
+			<label for="outputfrom">Input:</label>
+            
+            <p class="outputp" id="outputfrom">{{ inpyt }}</p>
+			
+			<label for="outputto">Output:</label>
+            
+            <p class="outputp" id="outputto">{{ outpyt }}</p>
+            
+            <span class="buttons">
+                
+                <a onclick="reloadPage()">reload</a>
+                
+            </span>
+            
+        </div>
+        
+        <div id="centerin" class="centerin">
+            
+            <h>INPUT</h>
+            
+            <div class="datetimestart">
+            
+                <label class="labelheader" for="datelabelstart">Start</label>
+            
+                <label id="datelabelstart" for="dateinputstart">Date</label>
+            
+                <input type="date" id="dateinputstart">
+            
+                <label for="timestart">Time</label>
+            
+                <span class="timestart">
+                    
+                    <select class="timeselect" id="hourstart">
+                        
+                        
+                        
+                    </select>
+                    
+                    <select class="timeselect" id="minutestart">
+                        
+                        
+                        
+                    </select>
+                    
+                    <select class="timeselect" id="ampmstart">
+                        
+                        
+                        
+                    </select>
+                    
+                </span>
+                
+            </div>
+            
+            <div class="datetimeend">
+            
+                <label class="labelheader" for="datelabelend">End</label>
+            
+                <label id="datelabelend" for="dateinputend">Date</label>
+            
+                <input type="date" id="dateinputend">
+            
+                <label for="timeend">Time</label>
+            
+                <span class="timeend">
+                    
+                    <select class="timeselect" id="hourend">
+              
+
+                        
+                    </select>
+                    
+                    <select class="timeselect" id="minuteend">
+                        
+                        
+                        
+                    </select>
+                    
+                    <select class="timeselect" id="ampmend">
+                        
+                        
+                        
+                    </select>
+                    
+                </span>                
+            </div>
+            
+            <div class="formatleft">
+                
+                <label class="labelheader" for="rangeformat">12 | 24</label>
+            
+                <input type="range" min="1" max="2" 
+                step="1" value="1" id="rangeformat">
+            
+                <label class="labelheader" for="rangestdt">ST | DST</label>
+            
+                <input type="range" min="1" max="2"
+                 step="1" value="1" id="rangestdt">
+
+                
+            </div>
+            
+            <div class="formatright">
+                
+                <label class="labelheader" for="rangestate">Zone | State</label>
+                
+                <input type="range" min="1" max="2"
+                    value="1" step="1" id="rangezonestate">
+                
+                <div class="centerright">
+                
+                    <select id="selectzonestate">
+                    
+                    
+                    
+                    </select>
+                    
+                </div>
+                
+            </div>
+                        
+        </div>
+        
+        <div id="centerout" class="centerout">
+            
+            <h>OUTPUT</h>
+            
+            <div class="formatleft">
+                
+                <label class="labelheader" for="rangeformatto">12 | 24</label>
+            
+                <input type="range" min="1" max="2" 
+                step="1" value="2" id="rangeformatto">
+            
+                <label class="labelheader" for="rangestdtto">ST | DST</label>
+            
+                <input type="range" min="1" max="2"
+                 step="1" value="2" id="rangestdtto">
+
+                
+            </div>
+            
+            <div class="formatright">
+                
+                <label class="labelheader" for="rangestateto">Zone | State</label>
+                
+                <input type="range" min="1" max="2"
+                    value="1" step="1" id="rangezonestateto">
+                
+                <div class="centerright">
+                
+                    <select id="selectzonestateto">
+                    
+                    
+                    
+                    </select>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div class="info" id="infoblock">
+                
+            <p id="pinfoa">{{ pynfoa }}</p>
+            <p id="pinfob">{{ pynfob }}</p>
+            <p id="pinfoc">{{ pynfoc }}</p>
+            <p id="pinfod">{{ pynfod }}</p>
+                
+        </div>
+        
+        <script>
+            
+            
+            // ## Define all elements of the page by ID
+            
+            
+            // Date Time Start
+            
+            var selectDateInput = document.getElementById("dateinputstart");
+            var selectHourInput = document.getElementById("hourstart");
+            var selectMinuteInput = document.getElementById("minutestart");
+            var selectFormatInput = document.getElementById("ampmstart");
+            
+            // Date Format Range
+            
+            var rangeFormatInput = document.getElementById("rangeformat");
+			var rangeFormatOutput = document.getElementById("rangeformatto");
+
+            // Date Time End
+            
+            var selectDateInputEnd = document.getElementById("dateinputend");
+            var selectHourInputEnd = document.getElementById("hourend");
+            var selectMinuteInputEnd = document.getElementById("minuteend");
+            var selectFormatInputEnd = document.getElementById("ampmend");
+
+            // Zone / State Input
+            
+            var rangeZoneState = document.getElementById("rangezonestate");
+            var rangeSTDT = document.getElementById("rangestdt");
+            var selectZoneState = document.getElementById("selectzonestate");
+            
+            // Format And Zone / State Output
+            
+            var rangeZoneStateOut = document.getElementById("rangezonestateto");
+            var rangeSTDTOut = document.getElementById("rangestdtto");
+            var selectZoneStateOut = document.getElementById("selectzonestateto");
+			
+			var infoParagraph = document.getElementById("infoblock");
+
+			var urlHome = "{{ urlhome }}";
+			var urlOzone = "{{ urlozone }}";
+
+			var tempStartHour = "";
+			var tempEndHour = "";
+			var tempStartMinute = "";
+			var tempEndMinute = "";
+			var tempStartPeriod = "";
+			var tempEndPeriod = "";
+			var tempInputZone = "";
+			var tempOutputZone = "";
+
+            
+            // ## Set all data
+            
+            var zonesST = ["AST", "EST", "CST", "MST", "PST", "AKST", "HST", "CEST"];
+            var zonesDT = ["ADT", "EDT", "CDT", "MDT", "PDT", "AKDT", "HST", "CEDT"];
+            
+            var states = ["Alabama", "Alaska", "Arizona", "Arkansas", "Bratislava", "California", "Colorado", 
+                         "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois",
+                         "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+                         "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", 
+                         "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+                         "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina",
+                         "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "Washington DC",
+                         "West Virginia", "Wisconsin", "Wyoming"];
+            
+            // ## Initialize all values within the elements
+					  
+			setValuesFromURL();
+            
+            // ## On Date start input
+            
+            selectDateInput.onchange = function () {
+
+                mirrorDateTime();
+				
+				redirectWithParams();
+
+            }
+			
+			// ## On Date end input 
+			
+			selectDateInputEnd.onchange = function () {
+				
+				redirectWithParams();
+				
+			}
+            
+            // ## On 12 / 24 range change
+            
+            rangeFormatInput.onchange = function() {
+
+                toggleAMPM(rangeFormatInput, selectHourInput,
+                           selectMinuteInput, selectFormatInput);
+
+                toggleAMPM(rangeFormatInput, selectHourInputEnd,
+                      selectMinuteInputEnd, selectFormatInputEnd);
+
+				mirrorTempTime();
+					  
+				redirectWithParams();
+
+            }
+
+            // ## On Hour start select input
+
+            selectHourInput.oninput = function () {
+
+                selectHourInputEnd.value = this.value;
+				
+				redirectWithParams();
+
+            }
+
+            // ## On Minute start select input
+
+            selectMinuteInput.oninput = function () {
+
+                selectMinuteInputEnd.value = this.value;
+				
+				redirectWithParams();
+
+            }
+			
+			// ## On Format start input
+			
+			selectFormatInput.oninput = function () {
+			
+				selectFormatInputEnd.value = this.value;
+				
+				redirectWithParams();
+				
+			}
+			
+			// ## On Hour end select input
+
+            selectHourInputEnd.oninput = function () {
+				
+				redirectWithParams();
+
+            }
+
+            // ## On Minute end select input
+
+            selectMinuteInputEnd.oninput = function () {
+				
+				redirectWithParams();
+
+            }
+			
+			// ## On Format end input
+			
+			selectFormatInputEnd.oninput = function () {
+				
+				redirectWithParams();
+				
+			}
+
+            // ## On Zone / State Input input
+
+            rangeZoneState.oninput = function () {
+
+                toggleZoneState(selectZoneState, rangeZoneState, rangeSTDT);
+				
+				redirectWithParams();
+
+            }
+			
+			selectZoneState.oninput = function () {
+				
+				redirectWithParams();
+				
+			}
+			
+			selectZoneStateOut.oninput = function () {
+				
+				redirectWithParams();
+				
+			}
+            
+            // ## On ST / DST Input input
+
+            rangeSTDT.oninput = function () {
+
+                toggleZoneState(selectZoneState, rangeZoneState, rangeSTDT);
+				
+				mirrorTempSTDTZone(this, rangeZoneState, selectZoneState, tempInputZone);
+				
+				redirectWithParams();
+
+            }
+
+            // ## On Zone / State Output input
+
+            rangeZoneStateOut.oninput = function () {
+
+                toggleZoneState(selectZoneStateOut, rangeZoneStateOut, rangeSTDTOut);
+				
+				redirectWithParams();
+
+            }
+            
+            // ## On ST / DST Output input
+
+            rangeSTDTOut.oninput = function () {
+
+                toggleZoneState(selectZoneStateOut, rangeZoneStateOut, rangeSTDTOut);
+				
+				mirrorTempSTDTZone(this, rangeZoneStateOut, selectZoneStateOut, tempOutputZone);
+				
+				redirectWithParams();
+
+            }
+			
+			// ## On 12 / 24 Output input 
+			
+			rangeFormatOutput.oninput = function () {
+				
+				redirectWithParams();
+				
+			}
+
+            function reloadPage () {
+
+                window.location.href = urlHome;
+
+            }
+
+            function mirrorDateTime () {
+
+                selectDateInputEnd.value = selectDateInput.value;
+                selectHourInputEnd.value = selectHourInput.value;
+                selectMinuteInputEnd.value = selectMinuteInput.value;
+                selectFormatInputEnd.value = selectFormatInput.value;
+
+            }
+
+            function padZero (num) {
+
+                return (num.toString().padStart(2,"0"));
+
+            }
+
+            function toggleAMPM (toggle, selhour, selminute, selampm) {
+
+                if (toggle.value == 2) {
+
+                    // Remove all options
+                    selhour.innerHTML = "";
+                    selminute.innerHTML = "";
+                    selampm.innerHTML = "";
+
+                    // Add hours
+                    for (var i = 0; i < 24; i++) {
+
+                        addOptions(padZero(i), selhour);
+
+                    }
+
+                    // Add minutes
+                    for (var i = 0; i < 60; i++) {
+
+                        addOptions(padZero(i), selminute);
+
+                    }
+
+
+                } else {
+
+                    // Remove all options
+                    selhour.innerHTML = "";
+                    selminute.innerHTML = "";
+                    selampm.innerHTML = "";
+
+                    // Add hours
+                    for (var i = 1; i < 13; i++) {
+
+                        addOptions(padZero(i), selhour);
+
+                    }
+
+                    // Add minutes
+                    for (var i = 0; i < 60; i++) {
+
+                        addOptions(padZero(i), selminute);
+
+                    }
+
+                    // Add Am Pm
+                    addOptions("AM", selampm);
+                    addOptions("PM", selampm);
+
+                }
+
+            }
+
+            function toggleZoneState (select, rangeZone, rangeSD) {
+
+                select.innerHTML = "";
+
+                 if (rangeZone.value == 1) {
+
+                     if (rangeSD.value == 1) {
+
+                         for (zone in zonesST) {
+
+                             addOptions(zonesST[zone], select);
+
+                         }
+
+                         
+
+                     } else {
+
+                         for (zone in zonesDT) {
+
+                             addOptions(zonesDT[zone], select);
+
+                         }
+
+                     }
+
+                 } else {
+
+                     for (state in states) {
+
+                             addOptions(states[state], select);
+
+                         }
+
+                 }
+
+            }
+
+            function addOptions (value, select) {
+
+                var option = document.createElement("option");
+
+                option.appendChild (document.createTextNode(value));
+
+                option.value = value;
+
+                select.appendChild(option);
+
+            }
+
+	    function setValuesFromURL () {
+
+		//Get all values from URL if present
+		
+			var url = new URL(window.location.href);
+
+			var urlStartDate = url.searchParams.get("datestart");
+
+			var urlStartTime = url.searchParams.get("timestart");
+
+			var urlEndDate = url.searchParams.get("dateend");
+
+			var urlEndTime = url.searchParams.get("timeend");
+
+			var urlZoneStateInput = url.searchParams.get("zonestateinput");
+
+			var urlZoneStateOutput = url.searchParams.get("zonestateoutput");
+
+			var urlFormatOutput = url.searchParams.get("formatoutput");
+			
+			var urlSTDT = url.searchParams.get("stdt");
+			
+			// Hide info box if it's empty
+			if (document.getElementById("pinfod").innerHTML == ""){
+				
+				infoParagraph.style.opacity = "0";
+				
+			}
+
+			//Format all the values
+
+			var urlHourMinuteStart = urlStartTime.split(":");
+			var urlHourStart = urlHourMinuteStart[0];
+			var urlMinuteStart = urlHourMinuteStart[1];
+			var urlPeriodStart = "";
+
+			var urlHourEnd;
+			var urlMinuteEnd;
+			var urlPeriodEnd = "";
+			
+			if (urlHourMinuteStart[2] == "AM" ) {
+
+				urlPeriodStart = "AM";
+
+			} else if (urlHourMinuteStart[2] ==  "PM" ) {
+				
+				urlPeriodStart = "PM";
+				
+			}
+
+			if (urlEndTime != null) {
+
+				var urlHourMinuteEnd = urlEndTime.split(":");
+				urlHourEnd = urlHourMinuteEnd[0];
+				urlMinuteEnd = urlHourMinuteEnd[1];
+			
+				if (urlHourMinuteEnd[2] == "AM" ) {
+
+					urlPeriodEnd = "AM";
+
+				} else if (urlHourMinuteEnd[2] == "PM" ) {
+					
+					urlPeriodEnd = "PM";
+					
+				}
+
+			}
+
+			//Set all the values
+
+			//Date and Time
+			
+			//Set the 12 / 24 format 
+
+			if (urlPeriodStart != "" || urlPeriodEnd != "") {
+
+				rangeFormatInput.value = 1;
+
+			} else { rangeFormatInput.value = 2; }
+			
+			toggleAMPM(rangeFormatInput, selectHourInput,
+                      selectMinuteInput, selectFormatInput);
+					  
+			toggleAMPM(rangeFormatInput, selectHourInputEnd,
+                      selectMinuteInputEnd, selectFormatInputEnd);
+
+			//Check the Input ZoneState and set ST / DT, Zone State and slider
+			
+			if (urlSTDT.split("")[0] == 1) {
+				
+				rangeSTDT.value = 2;
+				
+			} else {
+				
+				rangeSTDT.value = 1;
+				
+			}
+			
+			if (urlSTDT.split("")[1] == 1) {
+					
+				rangeSTDTOut.value = 2;	
+					
+			} else {
+					
+				rangeSTDTOut.value = 1;	
+					
+			}
+
+			selectDateInput.value = urlStartDate;
+			selectHourInput.value = urlHourStart;
+			selectMinuteInput.value = urlMinuteStart;
+
+			//Check for AM and PM
+
+			selectFormatInput.value = (urlPeriodStart == "AM") ? "AM" : "PM";
+
+			if (urlEndTime != null) {
+					  
+				selectFormatInputEnd.value = (urlPeriodEnd == "AM") ? "AM" : "PM";
+					  
+				selectDateInputEnd.value = urlEndDate;
+				selectHourInputEnd.value = urlHourEnd;
+				selectMinuteInputEnd.value = urlMinuteEnd;
+
+			} else {
+					  
+				mirrorDateTime();
+				
+			}
+
+
+			
+			if (zonesST.includes(urlZoneStateInput)) {
+
+				rangeZoneState.value = 1;
+				
+				toggleZoneState(selectZoneState, rangeZoneState, rangeSTDT);
+				
+				selectZoneState.value = urlZoneStateInput;	
+
+			} else if (zonesDT.includes(urlZoneStateInput)) {
+
+				rangeZoneState.value = 1;
+				
+				toggleZoneState(selectZoneState, rangeZoneState, rangeSTDT);
+				
+				selectZoneState.value = urlZoneStateInput;	
+
+			} else if (states.includes(urlZoneStateInput)) {
+
+				rangeZoneState.value = 2;
+				
+				toggleZoneState(selectZoneState, rangeZoneState, rangeSTDT);
+				
+				selectZoneState.value = urlZoneStateInput;
+
+
+			}
+
+			//Check and set ==||== for Output 
+
+			if (zonesST.includes(urlZoneStateOutput)) {
+
+				rangeZoneStateOut.value = 1;
+				
+				toggleZoneState(selectZoneStateOut, rangeZoneStateOut, rangeSTDTOut);
+				
+				selectZoneStateOut.value = urlZoneStateOutput;	
+
+			} else if (zonesDT.includes(urlZoneStateOutput)) {
+
+				rangeZoneStateOut.value = 1;
+				
+				toggleZoneState(selectZoneStateOut, rangeZoneStateOut, rangeSTDTOut);
+				
+				selectZoneStateOut.value = urlZoneStateOutput;	
+
+			} else if (states.includes(urlZoneStateOutput)) {
+
+				rangeZoneStateOut.value = 2;
+				
+				toggleZoneState(selectZoneStateOut, rangeZoneStateOut, rangeSTDTOut);
+				
+				selectZoneStateOut.value = urlZoneStateOutput;
+
+			}
+			
+			rangeFormatOutput.value = (urlFormatOutput == 12) ? 1 : 2;
+
+			
+			tempStartHour = selectHourInput.value;
+			tempStartMinute = selectMinuteInput.value;
+			tempStartPeriod = selectFormatInput.value;
+
+			if (selectHourInput.value != selectHourInputEnd.value || selectMinuteInput.value != selectMinuteInputEnd.value || selectFormatInput.value != selectFormatInputEnd.value) {
+
+				tempEndHour = selectHourInputEnd.value;
+				tempEndMinute = selectMinuteInputEnd.value;
+				tempEndPeriod = selectFormatInputEnd.value;
+
+			}
+
+			tempInputZone = selectZoneState.value;
+			tempOutputZone = selectZoneStateOut.value;
+		}
+			
+		function redirectWithParams () {
+			
+			const reURL = new URL(urlOzone);
+                       
+			
+			if (rangeFormatInput.value == 1){
+			
+				var selectedOptionInput = selectFormatInput.options[selectFormatInput.selectedIndex].text;
+				var selectedOptionOutput = selectFormatInputEnd.options[selectFormatInputEnd.selectedIndex].text;
+				
+			} else {
+				
+				var selectedOptionInput = "";
+				var selectedOptionOutput = "";
+				
+			}
+
+			
+			reURL.searchParams.set("datestart", selectDateInput.value);
+			reURL.searchParams.set("timestart", selectHourInput.value + ":" + selectMinuteInput.value + ":" + selectedOptionInput);
+			
+
+
+			if (selectDateInput.value != selectDateInputEnd.value || selectHourInput.value != selectHourInputEnd.value || selectMinuteInput.value != selectMinuteInputEnd.value) {	
+				
+				reURL.searchParams.set("dateend", selectDateInputEnd.value);
+				reURL.searchParams.set("timeend", selectHourInputEnd.value + ":" + selectMinuteInputEnd.value + ":" + selectedOptionOutput);
+				
+			}
+			
+			
+			
+			reURL.searchParams.set("zonestateinput", selectZoneState.value);
+			reURL.searchParams.set("zonestateoutput", selectZoneStateOut.value);
+			
+			var outputFormatTemp = (rangeFormatOutput.value == 1) ? 12 : 24;
+			
+			var tempSTDT = (rangeSTDT.value == 1) ? 0 : 1;
+			var tempSTDTOut = (rangeSTDTOut.value == 1) ? 0 : 1;
+			
+			var tempIOSTDT = tempSTDT + "" + tempSTDTOut;
+			
+			reURL.searchParams.set("formatoutput",  outputFormatTemp);
+			reURL.searchParams.set("stdt", tempIOSTDT);
+			
+			window.location.href = reURL;
+			
+		}
+
+		function mirrorTempTime () {
+
+			// Format for 12 -> 24 change
+			if (rangeFormatInput.value == 2) {
+
+				if (tempStartPeriod == "PM") {
+
+					selectHourInput.value = (tempStartHour == "12") ? "12" : padZero(parseInt(tempStartHour) + 12);
+
+				} else {
+
+					selectHourInput.value = (tempStartHour == "12") ? "00" : tempStartHour;
+
+				}
+
+				selectMinuteInput.value = tempStartMinute;
+
+				if (tempEndHour != "") {
+
+					if (tempEndPeriod == "PM") {
+
+						selectHourInputEnd.value = (tempEndHour == "12") ? "12" : padZero(parseInt(tempEndHour) + 12);
+
+					} else {
+
+						selectHourInputEnd.value = (tempEndHour == "12") ? "12" : tempEndHour;
+
+					}
+
+					selectMinuteInputEnd.value = tempEndMinute;
+
+				} 
+
+			// Format for 24 -> 12 change
+			} else {
+
+				if (parseInt(tempStartHour) > 12 || tempStartHour == "00") {
+
+					selectHourInput.value = (tempStartHour == "00") ? padZero(parseInt(tempStartHour) + 12) : padZero(parseInt(tempStartHour) - 12);
+					selectFormatInput.value = (tempStartHour == "00") ? "AM" : "PM";
+
+				} else {
+
+					selectHourInput.value = tempStartHour;
+					selectFormatInput.value = (tempStartHour == "12") ? "PM" : "AM";
+
+				}
+
+				selectMinuteInput.value = tempStartMinute;
+				
+
+				if (tempEndHour != "") {
+
+					if (parseInt(tempEndHour) > 12 || tempEndHour == "00") {
+
+						selectHourInputEnd.value = (tempEndHour == "00") ? padZero(parseInt(tempEndHour) + 12) : padZero(parseInt(tempEndHour) - 12);
+						selectFormatInputEnd.value = (tempEndHour == "00") ? "AM" : "PM";
+
+					} else {
+
+						selectHourInputEnd.value = tempEndHour;
+						selectFormatInputEnd.value = (tempEndHour == "12") ? "PM" : "AM";
+
+					}
+
+					selectMinuteInputEnd.value = tempEndMinute;
+
+				} 
+
+			}
+			
+			if (tempEndHour == "" || tempEndMinute == "") {
+				
+				mirrorDateTime();
+				
+			}
+
+		}
+
+		// Mirror zones ST > DT and vice versa
+		function mirrorTempSTDTZone (rangeSD, rangeZS, selectZS, tempZS) {
+
+			
+			if (rangeZS.value == 1) {
+				
+				// For change DST > ST
+				if (rangeSD.value == 1) {
+						
+					if (tempZS == "ADT") {
+						
+						selectZS.value = "AST";
+						
+					} else if (tempZS == "EDT") {
+						
+						selectZS.value = "EST";
+						
+					} else if (tempZS == "CDT") {
+						
+						selectZS.value = "CST";
+						
+					} else if (tempZS == "MDT") {
+						
+						selectZS.value = "MST";
+						
+					} else if (tempZS == "PDT") {
+						
+						selectZS.value = "PST";
+						
+					} else if (tempZS == "AKDT") {
+						
+						selectZS.value = "AKST";
+						
+					} else if (tempZS == "HST") {
+						
+						selectZS.value = "HST";
+						
+					} else if (tempZS == "CEDT") {
+						
+						selectZS.value = "CEST";
+						
+					}
+					
+				// For change ST > DST
+				} else {
+					
+					if (tempZS == "AST") {
+						
+						selectZS.value = "ADT";
+						
+					} else if (tempZS == "EST") {
+						
+						selectZS.value = "EDT";
+						
+					} else if (tempZS == "CST") {
+						
+						selectZS.value = "CDT";
+						
+					} else if (tempZS == "MST") {
+						
+						selectZS.value = "MDT";
+						
+					} else if (tempZS == "PST") {
+						
+						selectZS.value = "PDT";
+						
+					} else if (tempZS == "AKST") {
+						
+						selectZS.value = "AKDT";
+						
+					} else if (tempZS == "HST") {
+						
+						selectZS.value = "HST";
+						
+					} else if (tempZS == "CEST") {
+						
+						selectZS.value = "CEDT";
+						
+					}
+					
+				}
+				
+			} else {
+				
+				selectZS.value = tempZS;
+				
+			}
+
+		}
+            
+        </script>
+        
+    </body>
+</html>
