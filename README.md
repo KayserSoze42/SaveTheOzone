@@ -1,6 +1,6 @@
 # SaveTheOzone
 
-_Robust looking **Flask** and **JavaScript**(?) project, used to convert date and time to a different timezone_
+_Robust looking ¿**Flask** and **JavaScript**? project, used to convert date and time to a different timezone_
 
 _This was written many lifetimes ago, a simpler time when I didn't know any better, please judge accordingly._
 
